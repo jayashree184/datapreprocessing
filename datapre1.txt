@@ -1,0 +1,56 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+df=pd.read_csv("C:/Users/CSE WPT/Downloads/archive(2)/Housing_Modified.csv")
+df
+
+df.shape
+
+df.describe()
+
+sns.jointplot(x='bedrooms', y='price', data=df)
+
+sns.countplot(x="airco",data=df)
+
+sns.countplot(x="driveway",data=df)
+
+sns.countplot(x="prefarea",data=df)
+
+df.info()
+
+np.percentile(df.bedrooms,[99])
+
+np.percentile(df.bedrooms,[99])[0]
+
+uv=np.percentile(df.bedrooms,[99])[0]
+
+df[(df.bedrooms > uv)]
+
+df.bedrooms[(df.bedrooms > 3*uv)] = 3*uv
+
+sns.jointplot(x="lotsize", y="price",data=df)
+
+df.describe()
+
+df.info()
+
+df.bathrms = df.bathrms.fillna(df.bathrms.mean())
+
+df.info()
+
+df=df.fillna(df.mean())
+
+del df['airco']
+
+df.head()
+
+df=pd.get_dummies(df)
+
+df.head()
+
+df.corr()
+
+sns.countplot(x="garagepl",data=df)
+
+sns.countplot(x="bedrooms",data=df)
+
